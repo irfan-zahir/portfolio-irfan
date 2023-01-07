@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Andika&family=Hanken+Grotesk:wght@600;800&family=Pacifico&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+    --bg: #282A3A;
+    --bg-rgb: 40, 42, 58;
+    --primary: #4B56D2;
+    --primary-rgb: 75, 86, 210;
+    --text-color: #FCE2DB;
+    --text-color-rgb: 252, 226, 219;
+    --fancy-font: "Pacifico";
+    --title-font: "Hanken Grotesk";
+    --card-bg: rgba(62, 62, 62, 0.3);
+    --card-border: 1px solid rgba(62, 62, 62, 0.1);
+}
+
+html {
+    font-family: "Andika";
+    background-color: var(--bg);
+}
+
+.fancy-font {
+    font-family: var(--fancy-font);
+}
+
+.title-font {
+    font-family: var(--title-font);
+}
+
+/* @media (min-width: 768px) {
+    .section-container{
+
+    }    
+} */
+
+.section-container {
+    margin: 48px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--text-color);
+}
+
+.section-container:first-child {
+    margin: 0;
+    height: 100vh;
+}
+
+.image-container {
+    position: relative;
+    margin-top: 100px;
+    width: 250px;
+    height: 280px;
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    border: var(--card-border)
+}
+
+.image-container::before {
+    position: absolute;
+    left: 0px;
+}
+
+.image-container>img {
+    bottom: 0px;
+    position: absolute;
+}
+
+#page-scroller {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.embla {
+    overflow: hidden;
+    --slide-spacing: 1rem;
+    --slide-size: 80%;
+    --slide-height: 19rem;
+}
+
+.embla__container {
+    display: flex;
+}
+
+.embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    background-color: var(--primary);
+    color: var(--text-color);
+    transition: 0.25s background-color, color, border ease-in-out;
+}
+
+.embla__slide.is-selected {
+    background-color: var(--card-bg);
+    border: var(--card-border);
+}
+
+.embla__slide:last-child {
+    margin-right: 10px;
+}
+
+.embla__navigator {
+    transform: translate3d(0, 0, 0) !important;
+}
+
+.content-desc {
+    list-style: inside
+}
+
+.navigator__button {
+    color: var(--text-color);
+    background-color: var(--primary);
+    border: var(--card-border);
+    white-space: nowrap;
+    transition: 0.5s background-color ease-in-out;
+}
+
+.navigator__button.active {
+    color: var(--primary);
+    background-color: var(--card-bg);
+    border: var(--card-border);
+}
+
+.skill-container {
+    background-color: var(--card-bg);
+    border: var(--card-border);
+}
+
+.footer-scroller {
+    height: 600px;
+}
+
+.footer-content {
+    height: 600px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.input:focus {
+    outline: unset !important;
+}
+
+.gallery {
+    --slide-spacing: 1rem;
+    --slide-size: 80%;
+    --slide-height: 19rem;
+}
+
+.gallery__viewport {
+    overflow: hidden;
+}
+
+.gallery__container {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    margin-left: calc(var(--slide-spacing) * -1);
+}
+
+.gallery__slide {
+    flex: 0 0 var(--slide-size);
+    min-width: 0;
+    padding-left: var(--slide-spacing);
+    position: relative;
+}
+
+.gallery__slide__img {
+    display: block;
+    height: var(--slide-height);
+    width: 100%;
+    object-fit: cover;
+}
+
+.gallery__slide__number {
+    width: 4.6rem;
+    height: 4.6rem;
+    z-index: 1;
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    border-radius: 50%;
+    background-color: rgba(var(--background-site-rgb-value), 0.85);
+    line-height: 4.6rem;
+    font-weight: 900;
+    text-align: center;
+    pointer-events: none;
+}
+
+.gallery__slide__number>span {
+    color: var(--brand-primary);
+    background-image: linear-gradient(45deg,
+            var(--brand-primary),
+            var(--brand-secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.6rem;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.gallery__parallax {
+    height: 100%;
+    overflow: hidden;
+}
+
+.gallery__parallax__layer {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.gallery__parallax__img {
+    max-width: none;
+    width: calc(100% + (var(--slide-spacing) * 3));
+    margin-left: calc(var(--slide-spacing) * -1);
+}
+
+@media (min-width: 1024px) {
+    .gallery {
+
+        --slide-height: 30rem;
+    }
+}
